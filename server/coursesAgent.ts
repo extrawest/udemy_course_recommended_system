@@ -77,7 +77,6 @@ const app = workflow.compile();
 export async function getTopCourses(input: string) {
     const instruction = `Based on the following input: "${input}", query the Pinecone database for the top 3 relevant Udemy courses. Then, provide a list of these courses with their titles and URLs in the following format:
 
-    Here is the list of TOP 3 Udemy Courses that would level up your skills:
     1. [Course Title] - [Course URL]
     2. [Course Title] - [Course URL]
     3. [Course Title] - [Course URL]
@@ -92,8 +91,8 @@ export async function getTopCourses(input: string) {
 }
 
 // Example usage
-getTopCourses(
-    'Junior Level, Frontend developer with skillset of Html, Css, React.js, Vercel'
-)
-    .then(console.log)
-    .catch(console.error);
+// getTopCourses(
+//     'Junior Level, Frontend developer with skillset of Html, Css, React.js, Vercel'
+// )
+//     .then(console.log)
+//     .catch(console.error);

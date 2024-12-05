@@ -162,10 +162,10 @@ export async function runAgent(filePath: string) {
 
              ${fullContent}
 
-             Summary should be divided into 3 aections:
-            1. Level (Junior/Middle/Senior/Architect/etc.)
-            2. Developer Role (Frontend, Backend, Full Stack, Mobile, Designer, PM, etc.)
-            3. Skillset (java, .net, html, css, angular, react, flutter, etc.)`;
+             Summary should be divided into 3 section: Level, Developer Role, Skillset, it should look as follows:
+            (Junior/Middle/Senior/Architect/etc.)
+             (Frontend, Backend, Full Stack, Mobile, Designer, PM, etc.)
+             (java, .net, html, css, angular, react, flutter, etc.)`;
         const analyzeState = await app.invoke({
             messages: [new HumanMessage(analyzeInstruction)],
         });
