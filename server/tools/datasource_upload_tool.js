@@ -202,6 +202,5 @@ async function upsertVectors(vectors) {
 }
 
 // Usage example
-const csvFilePath =
-    '/Users/alex/StudioProjects/trainings/cv_udemy_recommendations/udemy-course-recommended-system/server/udemy_online_education_courses_dataset.csv'; // Replace with your CSV file path
+const csvFilePath = 'path/to/your/csv/file'; // Replace with your CSV file path
 processAndUploadChunk(csvFilePath);
