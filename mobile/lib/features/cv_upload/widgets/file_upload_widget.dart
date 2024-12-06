@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../common/utils/url_utils.dart';
 import '../../cv_upload/cubit/file_uploader_cubit.dart';
 import '../../search/widgets/search_field_widget.dart';
 import '../../search/widgets/search_results_widget.dart';

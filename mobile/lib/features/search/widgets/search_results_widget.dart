@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../common/utils/url_utils.dart';
 import '../bloc/search_bloc.dart';
 
 class SearchResultsWidget extends StatelessWidget {
@@ -16,10 +17,16 @@ class SearchResultsWidget extends StatelessWidget {
       } else if (state is SearchLoaded) {
         return Column(
           children: [
-            Text(state.result.title),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(state.result.title),
+            ),
             ...state.result.items.map((item) => Card(
               color: Colors.white,
               child: ListTile(
+                onTap: (){
+                  launchURL(item.link);
+                },
                 title: Text(item.title),
                 subtitle: Text(item.link),
               ),
