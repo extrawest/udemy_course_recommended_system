@@ -23,6 +23,18 @@
 
 ## Preview
 
+1. Upload and Summarize CV
+
+
+https://github.com/user-attachments/assets/a1dc2abb-0f20-4ff4-9ad4-28279d9ef13e
+
+
+2. Courses Recommendation
+
+
+https://github.com/user-attachments/assets/23203225-cfca-4818-bc2e-53122b715c98
+
+
 ## Installing:
 
 **1. Clone this repo to your folder:**
