@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 
 import multer from 'multer';
 import path from 'path';
-import { runAgent } from './agent.js';
+import { runAgent } from './cvProcessAgent.js';
 import { getTopCourses } from './coursesAgent.js';
 import fs from 'fs';
 
@@ -12,17 +12,6 @@ const port = 3000;
 app.use(express.json());
 app.use(bodyParser.raw({ type: 'application/json' }));
 
-// app.use((req, res, next) => {
-//     if (req.body) {
-//         console.log('Raw body:', req.body.toString());
-//         try {
-//             req.body = JSON.parse(req.body.toString());
-//         } catch (e) {
-//             console.error('Error parsing JSON:', e);
-//         }
-//     }
-//     next();
-// });
 // Multer configuration
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -69,20 +58,15 @@ app.post(
                 return res.status(500).send('Error uploading file');
             }
 
-            console.log('Request body:', req.body);
-            console.log('Request file:', req.file);
-
             if (!req.file) {
                 return res.status(400).send('No file uploaded.');
             }
 
             try {
                 const filePath = req.file.path;
-                console.log('File path:', filePath);
 
                 const result = await runAgent(filePath);
 
-                console.log('Result:', result);
                 res.json(result);
             } catch (error) {
                 console.error('Error processing CV:', error);
@@ -95,18 +79,11 @@ app.post(
 app.post(
     '/api/course-recommendation',
     asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
-        console.log('Received request');
-        console.log('Request body:', req.body.query);
-        console.log('Content-Type:', req.get('Content-Type'));
-
         const query = req.body.query;
-
-        console.log('Query:', query);
 
         try {
             const result = await getTopCourses(query);
 
-            console.log('Result:', result);
             res.json(result);
         } catch (error) {
             console.error('Error processing CV:', error);
